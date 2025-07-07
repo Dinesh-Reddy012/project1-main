@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Foddie Delight Webpage</title>
+    <style>
+     .nav{
+        background-color: #000;
+        display: flex;
+        padding: 15px 20px;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        width: 100%;
+        box-sizing: border-box;
+        gap: 15px;
+        position: relative;
+      }
+      
+      .nav-brand {
+        color: white;
+        font-size: 2rem;
+        font-weight: bold;
+        text-decoration: none;
+        margin: 0;
+      }
+      
+      .nav-menu {
+        display: flex;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        gap: 20px;
+        align-items: center;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+      
+      .nav-menu li a {
+        text-decoration: none;
+        color: white;
+        font-weight: 500;
+        padding: 8px 16px;
+        border-radius: 4px;
+        transition: all 0.3s ease;
+      }
+      
+      .nav-menu li a:hover {
+        background-color: #333;
+        color: #ff6b35;
+      }
+      
+      /* Hamburger menu styles */
+      #menu-checkbox {
+        display: none;
+      }
+      
+      .menu-toggle {
+        display: none;
+        position: relative;
+        width: 30px;
+        height: 30px;
+        cursor: pointer;
+        margin-left: auto;
+      }
+      
+      .menu-toggle span {
+        display: block;
+        position: absolute;
+        height: 3px;
+        width: 100%;
+        background: white;
+        border-radius: 3px;
+        opacity: 1;
+        left: 0;
+        transform: rotate(0deg);
+        transition: .25s ease-in-out;
+      }
+      
+      .menu-toggle span:nth-child(1) {
+        top: 6px;
+      }
+      
+      .menu-toggle span:nth-child(2) {
+        top: 12px;
+      }
+      
+      .menu-toggle span:nth-child(3) {
+        top: 18px;
+      }
+      
+      #menu-checkbox:checked ~ .nav-header .menu-toggle span:nth-child(1) {
+        top: 12px;
+        transform: rotate(45deg);
+      }
+      
+      #menu-checkbox:checked ~ .nav-header .menu-toggle span:nth-child(2) {
+        opacity: 0;
+      }
+      
+      #menu-checkbox:checked ~ .nav-header .menu-toggle span:nth-child(3) {
+        top: 12px;
+        transform: rotate(-45deg);
+      }
+      
+      .desktop-menu {
+        display: flex;
+      }
+      
+      .mobile-menu {
+        display: none;
+      }
+      
+      @media screen and (max-width: 768px) {
+        .desktop-menu {
+          display: none;
+        }
+        
+        .nav {
+          flex-direction: column;
+          justify-content: flex-start;
+          gap: 0;
+          position: relative;
+        }
+        
+        .nav-header {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          width: 100%;
+          padding: 0;
+        }
+        
+        .nav-brand {
+          font-size: 1.5rem;
+        }
+        
+        .menu-toggle {
+          display: block;
+        }
+        
+        .mobile-menu {
+          display: flex;
+          background-color: #000;
+          max-height: 0;
+          overflow: hidden;
+          transition: max-height 0.3s ease;
+          box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+          flex-direction: column;
+          gap: 0;
+          width: 100%;
+          margin: 0;
+          padding: 0;
+        }
+        
+        #menu-checkbox:checked ~ .mobile-menu {
+          max-height: 400px;
+        }
+        
+        .mobile-menu li {
+          width: 100%;
+          border-bottom: 1px solid #333;
+        }
+        
+        .mobile-menu li:last-child {
+          border-bottom: none;
+        }
+        
+        .mobile-menu li a {
+          display: block;
+          width: 100%;
+          text-align: center;
+          padding: 15px;
+          border-radius: 0;
+        }
+        
+        .mobile-menu li a:hover {
+          background-color: #ff6b35;
+          color: white;
+        }
+      }
+      
+      @media screen and (max-width: 480px) {
+        .nav {
+          padding: 12px 15px;
+        }
+        
+        .nav-brand {
+          font-size: 1.3rem;
+        }
+      }
+      .div1 {
+        display: flex;
+        justify-content: center;
+        text-align: center;
+        color: white;
+        flex-wrap: wrap;
+      }
+      a {
+        text-decoration: none;
+        color: white;
+      }
+      #div2{
+        position:relative;
+        justify-content: center;
+        background-position:center;
+        text-align:center;
+        background-image: url("cafe-img.avif");
+        background-size:cover;
+        width: 100%;
+        color: white;
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        z-index: 1;
+         }
+      button {
+        border-radius: 5px;
+        margin: auto;
+        width: 120px;
+        height: 30px;
+        color: white;
+        background-color: orangered;
+        margin-bottom: 15px;
+      }
+      .part1{
+        height:150px;
+        width: 150px;
+        border-radius: 50%;
+
+      }
+      .items{
+        display: grid;
+        grid-template-columns: repeat(3,28%);
+        justify-items: center;
+        justify-content: center;
+        gap: 10px;
+        
+       }
+       .items div{
+        border: 2px solid rgb(246, 231, 231);
+        background-color: white;
+        display:grid;
+        justify-items: center;
+        height:90%;
+        width: 90%;
+        padding: 10px;
+        border-radius: 7px;
+
+       }
+       #div3{
+        display: grid;
+        background-color:rgb(235, 242, 242);
+       }
+       .part2
+      {
+         height:50vw;
+         width: 60vw;
+         border-radius: 5px;
+      }
+      #FD{
+        display: flex;
+        background-color:rgb(231, 237, 237);
+        flex-direction: column;
+        justify-content: center;
+        
+       
+        align-items: center;
+        /* gap:10px; */
+       
+        
+       }
+       #FD div{
+        background-color: white;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        border:2px solid rgba(249, 245, 245, 0.919);
+        width:60vw;
+        padding: 10px;
+        margin:15px;
+        
+        border-radius: 5px;
+       
+
+       } 
+       .hl{
+        height: 25vh;
+        width: 22vw;
+        border-radius: 5px;
+       }
+       .ht{
+        height:30vh;
+        width:25vw;
+        border-radius: 5px;
+       }
+       #BP {
+           border: 2px solid rgb(236, 231, 231);
+           width:100%;
+           display: flex;
+           flex-direction:column;
+           flex-wrap: wrap;
+           background-color:rgb(235, 242, 242);
+         }
+       .places{
+        background-color:rgb(235, 242, 242);
+        display: flex;
+        justify-content: center;
+        /* text-align: center; */
+        border-radius: 5px;
+        gap:15px;
+        flex-wrap: wrap;
+        
+       }
+       .places div{
+        display: flex;
+        flex-direction:column;
+        align-items: center;
+        flex-wrap: wrap;
+        /* text-align: center; */
+        border: 2px solid rgb(239, 234, 234) ;
+        padding: 15px;
+        border-radius: 5px;
+        background-color: white;
+
+        }
+        @media screen and (min-width:0px) and (max-width:495px) {
+          .items{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+          }
+      }
+        @media screen and (min-width:495px) and (max-width:760px) {
+          .items{
+            display:grid;
+            grid-template-columns:repeat(2,1fr);
+            justify-content: center;
+
+           
+          }
+        } @media screen and (min-width:0px) and (max-width:570px) {
+          .places{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+          }
+        }
+        .review{
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          
+          background-color: white;
+          width: 90vw;
+        }
+        .div6{
+          background-color:rgb(231, 237, 237);
+          display: flex;
+          flex-wrap: wrap;
+          flex-direction: column;
+          align-items: center;
+          
+         
+        }
+        #div7{
+          background-color:rgb(231, 237, 237);
+          display: flex;
+          flex-direction: column;
+          flex-wrap: wrap;
+        
+        }
+        #div8{
+          border: 2px solid rgb(236, 231, 231);
+          background-color:rgb(235, 242, 242);
+          display: flex;
+          flex-direction: column;
+          width:100%;
+          text-align: center;
+          /* padding-left:15px; */
+        }
+        #div9{
+          background-color:rgb(231, 237, 237);
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          /* align-items: center; */
+          text-align: center;
+        }
+        #div10{
+          display: flex;
+          justify-content: center;
+          color: white;
+          background-color: black;
+        }
+       
+       
+    </style>
+  </head>
+  <body>
+    <nav class="nav">
+      <input type="checkbox" id="menu-checkbox">
+      
+      <div class="nav-header">
+        <a href="#div2" class="nav-brand">Foodie Delight</a>
+        
+        <label for="menu-checkbox" class="menu-toggle">
+          <span></span>
+          <span></span>
+          <span></span>
+        </label>
+      </div>
+      
+      <ul class="nav-menu desktop-menu">
+        <li><a href="#div2">Home</a></li>
+        <li><a href="#div3">Menu</a></li>
+        <li><a href="#FD">Featured Dishes</a></li>
+        <li><a href="#BP">Best Places</a></li>
+        <li><a href="#div7">Testimonials</a></li>
+        <li><a href="#div8">FAQ</a></li>
+        <li><a href="#div9">About</a></li>
+        <li><a href="#div10">Contact</a></li>
+      </ul>
+      
+      <ul class="nav-menu mobile-menu">
+        <li><a href="#div2">Home</a></li>
+        <li><a href="#div3">Menu</a></li>
+        <li><a href="#FD">Featured Dishes</a></li>
+        <li><a href="#BP">Best Places</a></li>
+        <li><a href="#div7">Testimonials</a></li>
+        <li><a href="#div8">FAQ</a></li>
+        <li><a href="#div9">About</a></li>
+        <li><a href="#div10">Contact</a></li>
+      </ul>
+    </nav>
+    
+    <div class="md">
+      <div id="div2">
+        <div class="text">
+        <h1>Welcome to Foodie Delight</h1>
+          <p>
+          Your favourite place to order delicious food online
+        </p>
+        <button >See Our Menu</button>
+      </div>
+      </div>
+    </div>
+    <div id="div3"> 
+<h1 style="display: flex;justify-content: center;">Menu</h1>
+<div class="items">
+  <div class="bg"><img class="part1" src="burger.avif" alt="Burger"></img>
+  <h1>Deluxe burger</h1>
+  <p>juicy beef patty with cheese,lettuce, and tomato.</p>
+  <p style="color: red;">$2.99</p>
+  </div>
+  <div class="cp"><img class="part1" src="pizza.avif" alt="Burger"></img>
+    <h1>Cheese Pizza</h1>
+    <p>Classic cheese pizza with a crispy crust.</p>
+    <p style="color: red;">$4.99</p>
+    </div>
+    <div class="taco"><img class="part1"  src="taco.avif" alt="Burger"></img>
+      <h1>Taco Bell</h1>
+      <p>Flavorful,customizable Mexican fast food.</p>
+      <p style="color: red;">$3.99</p>
+      </div>
+      <div class="kfc"><img class="part1"  src="f79f0e8f93bf34a07bbe3509ac89190d.jpg" alt="Burger"></img>
+        <h1>KFC</h1>
+        <p>Flavorful,customizable KFC food.</p>
+        <p style="color: red;">$4.49</p>
+        </div>
+        <div class="FF"><img class="part1" src="fri.jpeg" alt="Burger"></img>
+          <h1>French Fries</h1>
+          <p>Little hot and Spicy food</p>
+          <p style="color: red;">$2.49</p>
+          </div>
+          <div class="ip"><img class="part1"  src="pizza2.avif" alt="Burger"></img>
+            <h1>Italian's Pizza</h1>
+            <p>Flavourful Customizable italian food</p>
+            <p style="color: red;">$3.99</p>
+            </div>
+  
+</div>
+</div> 
+<div id="FD">
+<h1>Feautured Dishes</h1>
+ <div class="div4">
+  <img class="part2" src="sushi.avif" alt=""></img>
+<h1>Sushi Roll</h1>
+<p>Fresh sushi roll with variety of fillings</p>
+</div>
+ <div class="div5">
+  <img class="part2" src="pasta.avif" alt=""></img>
+  <h1>Italian Pasta</h1>
+<p>Delicious Pasta with a rich tomato sause</p>
+ </div>
+</div>
+<div id="BP">
+  <h1 style="display: flex;justify-content: center;">Best Places</h1>
+  
+  <div class="places">
+  <div><img class="ht" src="img1.avif" alt=""></img>
+  <h2>Bhojanambu Kitchen</h2>
+<p>Jubileehills,Hyderabad</p>
+</div>
+<div><img class="ht" src="img2.avif" alt=""></img>
+  <h2>Marriott Hotel</h2>
+<p>Hyderabad Marriot Hotel & <br> Convention center,Secunderabad</p>
+</div>
+<div><img class="ht" src="img3.avif" alt=""></img>
+  <h2>Mezbaan Authentic</h2>
+<p>S P Road,Secunderabad</p>
+</div>
+
+<div>
+  <img class="hl" src="img4.avif" alt=""></img>
+  <h2>Gudgudee Hotel</h2>
+<p>Madhapur,Hyderabad</p>
+</div>
+</div>
+<div id="div7">
+<h1 style="display: flex; justify-content: center;flex-wrap: wrap;">What Our Customers Say</h1>
+
+<div class="div6"><div class="review"><p>"Amazing food and quick delivery!Will definately order again."</p>
+<p style="color: red;">-john Doe</p></div>
+<div></div>
+<div class="review"><p>"The pizza was the best I've ever had.Highly recommend"</p>
+  <p style="color: red;">-jane smith</p></div>
+</div>
+</div>
+</div>
+<div id="div8">
+  <h1>Frequently Asked Questions</h1>
+  <h3 style="color:red;">What is your delivery area?</h3>
+  <p>We deliver within a 10-mile radius from our restaurant.Check our delivery zone on tthe contact page</p>
+  <h3 style="color:red;">Do you offer vegetarian options?</h3>
+  <p>Yes,we offer a range of vegetarian dishes.Check our menu for details</p>
+</div>
+<div id="div9">
+  <h1>About Us</h1>
+  <p>At Foodie Delight,we are commited to delivering high-quality and delicious food right to your doorstep.Our teem of chefs and delivery personnel ensuresthat you receive thr best service possible.</p>
+  <form>
+    <label for="name">Name:</label><br><br>
+    <input  type="text" id="name"></input><br><br>
+    <label for="email">Email:</label><br><br>
+    <input  type="text" id="email"></input><br><br>
+    <label for="message">Message</label><br><br>
+    <input  type="text" id="message"></input><br><br>
+    <button>Send Message</button>
+  </form>
+</div>
+<div id="div10"><p>@ 2024 Foodie Delight.All rights reserved.</p></div>
+</body>
+</html>
